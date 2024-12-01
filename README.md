@@ -2,6 +2,7 @@
 
 The Dataset was exceeding my GitHub Large File Storage Limit so it is not included in the repo, here is the link: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data/discussion?sort=hotness
 
+No google slide deck for this one as project is presented through Shiny Dashboard
 
 The purpose of this project was to analyze Earth's climate change with R and visualize the key findings through a Shiny App.
 
