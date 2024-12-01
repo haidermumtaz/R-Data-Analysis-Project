@@ -3,19 +3,13 @@ library(ggplot2)
 library(shinydashboard)
 library(dplyr)
 
+# Source the global.R file to load and preprocess the data
+source("global.R")
 
 function(input, output, session) {
   
   temp_data <- reactive({
-    global_temps <- read.csv("GlobalTemperatures.csv")
-    
-    global_temps_clean <- global_temps %>%
-      filter(!is.na(LandAverageTemperature)) %>%
-      mutate(Decade = floor(as.numeric(format(as.Date(dt), "%Y")) / 10) * 10) %>%
-      group_by(Decade) %>%
-      summarise(AvgTemp = mean(LandAverageTemperature, na.rm = TRUE))
-    
-    return(global_temps_clean)
+    global_temps_clean
   })
   
   # Main plot output
