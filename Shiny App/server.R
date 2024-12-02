@@ -1,9 +1,3 @@
-library(shiny)
-library(ggplot2)
-library(shinydashboard)
-library(dplyr)
-
-# Source the global.R file to load and preprocess the data
 source("global.R")
 
 function(input, output, session) {
@@ -95,12 +89,15 @@ function(input, output, session) {
     # Create a data frame for future data
     future_data <- data.frame(Decade = future_decades$Decade, AvgTemp = future_temps)
     
-    # Calculate the years when the temperature increases by 1 degree (future work didnt complete)
-    #initial_temp <- tail(data$AvgTemp, 1)
-    #temp_increase_years <- future_data %>%
-    #  filter(AvgTemp >= initial_temp + 1) %>%
-     # slice(1) %>%
-      #pull(Decade)
+    # Calculate the years when the temperature increases by 1 degree
+    initial_temp <- tail(data$AvgTemp, 1)
+    temp_increase_years <- future_data %>%
+      filter(AvgTemp >= initial_temp + 1) %>%
+      slice(1) %>%
+      pull(Decade)
+    
+    # Print the year(s) when temperature increases by 1 degree
+    print(paste("Year when temperature increases by 1 degree:", temp_increase_years))
     
     # Plot
     ggplot(future_data, aes(x = Decade, y = AvgTemp)) +

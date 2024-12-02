@@ -6,6 +6,10 @@ No google slide deck for this one as project is presented through Shiny Dashboar
 
 The purpose of this project was to analyze Earth's climate change with R and visualize the key findings through a Shiny App.
 
+To run:
+
+shiny::runApp()
+
 FUTURE WORK:
 
 For future work, I would implement a time series analysis to better predict the future temperature readings as opposed to the linear model I used.
