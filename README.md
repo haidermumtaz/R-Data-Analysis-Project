@@ -1,6 +1,6 @@
 # R-Data-Analysis-Project
 
-The Dataset was exceeding my GitHub Large File Storage Limit so it is not included in the repo, here is the link: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data/discussion?sort=hotness
+The Dataset was exceeding my GitHub Large File Storage Limit so it is not included in the repo, here is the link: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data/data
 
 No google slide deck for this one as project is presented through Shiny Dashboard
 
