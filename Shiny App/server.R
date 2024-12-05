@@ -90,7 +90,7 @@ function(input, output, session) {
     future_data <- data.frame(Decade = future_decades$Decade, AvgTemp = future_temps)
     
     # Calculate the years when the temperature increases by 1 degree
-    initial_temp <- tail(data$AvgTemp, 1)
+    initial_temp <- head(data$AvgTemp, 1)
     temp_increase_years <- future_data %>%
       filter(AvgTemp >= initial_temp + 1) %>%
       slice(1) %>%
