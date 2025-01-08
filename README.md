@@ -7,7 +7,9 @@ The purpose of this project is to analyze Earth's climate change using R and vis
 ## Future Work
 
 1. **Advanced Time Series Analysis:**
+   - Consider log transformation for temperature data to stabilize variance and improve model fit.
    - Implement more sophisticated models such as ETS, ARIMA, and Bayesian Structural Time Series (BSTS) for improved forecasting accuracy.
+   
 
 
 ## Acknowledgments
