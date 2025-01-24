@@ -7,19 +7,26 @@ function(input, output, session) {
   })
 
   # Main plot output
-  output$decadePlot <- renderPlot({
+  output$decadePlot <- renderPlotly({
     data <- temp_data()
-
-    ggplot(data, aes(x = decade, y = avg_temp)) +
+    
+    total_change <- round(tail(data$avg_temp, 1) - data$avg_temp[1], 2)
+    
+    p <- ggplot(data, aes(x = decade, y = avg_temp)) +
       geom_line(color = '#FF6B6B', linewidth = 1) +
-      geom_point(color = '#4ECDC4', size = 3) +
+      geom_point(
+        color = '#4ECDC4', 
+        size = 3,
+        aes(text = paste0(
+          "Decade: ", decade,
+          "\nTemperature: ", round(avg_temp, 2), "°C"
+        ))
+      ) +
       geom_smooth(method = 'loess', color = '#45B7D1', fill = '#45B7D180') +
       theme_minimal() +
       labs(
         title = 'Global Land Temperature Change by Decade',
-        subtitle = paste('Total change:', 
-                        round(tail(data$avg_temp, 1) - data$avg_temp[1], 2), 
-                        '°C'),
+        subtitle = paste('Total change:', total_change, '°C'),
         x = 'Decade',
         y = 'Average Temperature (°C)'
       ) +
@@ -27,6 +34,27 @@ function(input, output, session) {
         plot.title = element_text(size = 14, face = 'bold'),
         plot.subtitle = element_text(size = 12),
         axis.title = element_text(size = 10)
+      )
+    
+    # Convert to plotly with custom configuration
+    ggplotly(p, tooltip = "text") %>%
+      config(displayModeBar = FALSE) %>%  # Removes the plotly toolbar
+      layout(
+        hoverlabel = list(
+          bgcolor = "white",
+          font = list(size = 12)
+        ),
+        # Preserve title and subtitle formatting
+        title = list(
+          text = paste0(
+            'Global Land Temperature Change by Decade',
+            '<br>',
+            '<sup>',
+            'Total change: ', total_change, '°C',
+            '</sup>'
+          ),
+          font = list(size = 14, weight = 'bold')
+        )
       )
   })
   

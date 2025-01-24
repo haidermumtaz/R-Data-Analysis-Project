@@ -45,7 +45,7 @@ ui <- dashboardPage(
             status = "primary",
             solidHeader = TRUE,
             title = "Global Land Temperature Change by Decade",
-            plotOutput("decadePlot", height = "400px")
+            plotlyOutput("decadePlot", height = "400px")
           )
         ),
         fluidRow(

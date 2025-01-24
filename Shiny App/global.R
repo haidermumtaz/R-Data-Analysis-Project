@@ -3,6 +3,7 @@ library(shinydashboard)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
+library(plotly)
 
 if (!file.exists("GlobalTemperatures.csv")) {
   stop("The data file 'GlobalTemperatures.csv' is missing. Please ensure it is in the app directory.")
