@@ -59,9 +59,6 @@ ui <- dashboardPage(
             status = "info",
             solidHeader = TRUE,
             title = "Temperature Trends Information",
-            p("Climate change is arguably the biggest issue facing humanity today, as the Earth's rising temperatures have profound and escalating consequences as global average temperatures increase."),
-            p("This graph shows the change in global land temperature over the decades from 1750 to 2024."),
-            p("The trend line indicates the overall warming trend observed in the data."),
             p("As you can see, the earth has already surpassed 1°C of warming since the Industrial Revolution. 
             Present day temperatures are the highest they have been in the last 2,000 years and have reached a peak of 1.47°C of total global warming.
             Our current status of over 1° C of warming has had alarming impacts on our climate and ecosystems, which are not limited to: "),
