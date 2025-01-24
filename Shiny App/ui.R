@@ -84,7 +84,7 @@ ui <- dashboardPage(
             status = "primary",
             solidHeader = TRUE,
             title = "Future Global Land Temperature Projection",
-            plotOutput("temp_plot", height = "400px")
+            plotlyOutput("temp_plot", height = "400px")
           )
         ),
         fluidRow(
@@ -122,7 +122,7 @@ ui <- dashboardPage(
       #       p(" -Greater sea-level rise threatening coastal communities."),
       #     p(" -Loss of up to 90% of coral reefs."),
       #     p(" -Increased water scarcity affecting millions of people."),
-      #     p(" -Decline in agricultural productivity in many regions, risking food security.")
+      #     p("-Decline in agricultural productivity in many regions, risking food security.")
       #     ),
       #     box(
       #       width = 6,

@@ -131,10 +131,10 @@ function(input, output, session) {
   })
   
   # Generate the plot
-  output$temp_plot <- renderPlot({
+  output$temp_plot <- renderPlotly({
     predictions_df <- predictions_data()
     
-    ggplot() +
+    p <- ggplot() +
       # Predictions
       geom_line(data=predictions_df, aes(x=decade, y=temp_change), 
                 color="red", size=1) +
@@ -158,6 +158,25 @@ function(input, output, session) {
             plot.subtitle = element_text(hjust = 0.5)) +
       scale_x_continuous(breaks = seq(2020, max(predictions_df$decade), by=20)) +
       scale_y_continuous(limits = c(1.5, 4.2))
+    
+    # Convert to plotly with improved hover
+    ggplotly(p) %>% 
+      config(displayModeBar = FALSE) %>%
+      layout(
+        hovermode = "x unified",
+        hoverlabel = list(
+          bgcolor = "#F0F8FF",  # Light blue background
+          bordercolor = "#4682B4",  # Steel blue border
+          font = list(size = 12, color = "#2F4F4F")  # Dark slate gray text
+        )
+      ) %>%
+      style(
+        hovertemplate = paste(
+          "Decade: %{x}<br>",
+          "Temperature Change: %{y:.2f}°C",
+          "<extra></extra>"
+        )
+      )
   })
   
   # Generate the threshold crossings table
