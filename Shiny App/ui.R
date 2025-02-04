@@ -3,7 +3,7 @@ source("global.R")
 ui <- dashboardPage(
   dashboardHeader(
     title = tags$div(
-      style = "font-size: 16px;",  # Adjust the font size as needed
+      style = "font-size: 16px;",
       "Global Temperature"
     )
   ),
@@ -98,67 +98,6 @@ ui <- dashboardPage(
           )
         )
       ),
-# Future Impact of Global Warming Tab
-      # tabItem(
-      #   tabName = "future_impact",
-      #   fluidRow(
-      #     box(
-      #       width = 12,
-      #       status = "warning",
-      #       solidHeader = TRUE,
-      #       title = "Future Impact of Global Warming",
-      #       p("If the Earth continues to warm at this rate, the effects on our planet will be catastrophic, even at such small scales of 1 degree celcius."),
-      #     )
-      #   ),
-      #   fluidRow(
-      #     box(
-      #       width = 6,
-      #       status = "info",
-      #       solidHeader = TRUE,
-      #       title = "1.5°C of warming",
-      #       p(" -Greater sea-level rise threatening coastal communities."),
-      #     p(" -Loss of up to 90% of coral reefs."),
-      #     p(" -Increased water scarcity affecting millions of people."),
-      #     p("-Decline in agricultural productivity in many regions, risking food security.")
-      #     ),
-      #     box(
-      #       width = 6,
-      #       status = "info",
-      #       solidHeader = TRUE,
-      #       title = "2°C of warming",
-      #     p("-Virtually all coral reefs lost."),
-      #     p("-Significant rise in sea levels (20-30 cm by 2100), displacing tens of millions of people."),
-      #     p("-Arctic ice-free in summer at least once per decade."),
-      #     p("-Doubling of extreme heat days in many regions."),
-      #     p("Mass extinctions as ecosystems fail to adapt."),
-      #     p("Severe health impacts, including heat-related illnesses and vector-borne diseases.")
-      #     )
-      #   ),
-      #   fluidRow(
-      #     box(
-      #       width = 6,
-      #       status = "info",
-      #       solidHeader = TRUE,
-      #       title = "3° of warming",
-      #       p("-Massive displacement of people (hundreds of millions) due to coastal flooding and desertification."),
-      #       p("-Agricultural productivity severely reduced, risking widespread food shortages."),
-      #       p("-Widespread water scarcity, impacting billions."),
-      #       p("-Catastrophic biodiversity loss across terrestrial and marine ecosystems."),
-      #       p("-Increased risk of feedback loops, such as methane release from permafrost.")
-      #       ),
-      #     box(
-      #       width = 6,
-      #       status = "info",
-      #       solidHeader = TRUE,
-      #       title = "4°C of warming",
-      #       p("-Global ecosystems unable to sustain current lifeforms; extinction of countless species."),
-      #       p("-Collapse of major agricultural systems."),
-      #       p("-Permanent inundation of major cities (e.g., New York, Mumbai, Tokyo)."),
-      #       p("-Heatwaves so severe they exceed the survivability threshold for humans in some areas."),
-      #       p("-Mass migration and geopolitical instability.")
-      #       )
-      #   )
-      # ),
 tabItem(
   tabName = "future_impact",
   fluidRow(
@@ -181,7 +120,6 @@ tabItem(
         label = "Choose a Temperature Threshold (°C):",
         choices = c(1.5, 2.0, 3.0, 4.0)
       ),
-      # This will dynamically display the crossing decade and impact info
       uiOutput("impactDetails")
     )
   )
